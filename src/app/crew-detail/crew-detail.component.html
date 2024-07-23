@@ -1,0 +1,31 @@
+<div>
+  <h2>{{ crew.firstName }} {{ crew.lastName }}</h2>
+  <p>{{ "NATIONALITY" | translate }}: {{ crew.nationality }}</p>
+  <p>{{ "TITLE" | translate }}: {{ crew.title }}</p>
+  <p>{{ "DAYS_ON_BOARD" | translate }}: {{ crew.daysOnBoard }}</p>
+  <p>{{ "DAILY_RATE" | translate }}: {{ crew.dailyRate }}</p>
+  <p>{{ "CURRENCY" | translate }}: {{ crew.currency }}</p>
+  <p>{{ "TOTAL_INCOME" | translate }}: {{ crew.totalIncome }}</p>
+
+  <h3>{{ "CERTIFICATES" | translate }}</h3>
+  <table mat-table [dataSource]="crew.certificates">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "CERTIFICATE_NAME" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let certificate">{{ certificate.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ "CERTIFICATE_DATE" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let certificate">
+        {{ certificate.date | date : "yyyy-MM-dd" }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['name', 'date']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name', 'date']"></tr>
+  </table>
+</div>

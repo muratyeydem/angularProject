@@ -1,0 +1,11 @@
+{
+  "FIRST_NAME": "Prénom",
+  "LAST_NAME": "Nom",
+  "NATIONALITY": "Nationalité",
+  "TITLE": "Titre",
+  "DAYS_ON_BOARD": "Jours à bord",
+  "DAILY_RATE": "Taux Journalier",
+  "CURRENCY": "Monnaie",
+  "TOTAL_INCOME": "Revenu Total",
+  "DISCOUNT": "Remise"
+}

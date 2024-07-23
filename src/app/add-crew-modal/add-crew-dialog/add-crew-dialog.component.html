@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>Add Crew</h1>
+<form #crewForm="ngForm">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput name="firstName" ngModel required />
+      <mat-error *ngIf="!crewForm.controls['firstName']?.valid"
+        >First Name is required.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput name="lastName" ngModel required />
+      <mat-error *ngIf="!crewForm.controls['lastName']?.valid"
+        >Last Name is required.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nationality</mat-label>
+      <input matInput name="nationality" ngModel required />
+      <mat-error *ngIf="!crewForm.controls['nationality']?.valid"
+        >Nationality is required.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput name="title" ngModel required />
+      <mat-error *ngIf="!crewForm.controls['title']?.valid"
+        >Title is required.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Days On Board</mat-label>
+      <input matInput type="number" name="daysOnBoard" ngModel required />
+      <mat-error *ngIf="!crewForm.controls['daysOnBoard']?.valid"
+        >Days On Board is required.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Daily Rate</mat-label>
+      <input matInput type="number" name="dailyRate" ngModel required />
+      <mat-error *ngIf="!crewForm.controls['dailyRate']?.valid"
+        >Daily Rate is required.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Currency</mat-label>
+      <mat-select name="currency" ngModel required>
+        <mat-option value="USD">USD</mat-option>
+        <mat-option value="EUR">EUR</mat-option>
+      </mat-select>
+      <mat-error *ngIf="!crewForm.controls['currency']?.valid"
+        >Currency is required.</mat-error
+      >
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button
+      mat-button
+      [mat-dialog-close]="crewForm.value"
+      [disabled]="!crewForm.form.valid"
+    >
+      Save
+    </button>
+  </div>
+</form>

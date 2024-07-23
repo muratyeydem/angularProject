@@ -1,0 +1,35 @@
+<div>
+  <mat-toolbar>
+    <button mat-button (click)="openAddCrewModal()">Add Crew</button>
+    <mat-form-field>
+      <mat-label>Language</mat-label>
+      <mat-select>
+        <mat-option value="en">English</mat-option>
+        <mat-option value="fr">French</mat-option>
+        <mat-option value="pt">Portuguese</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="crewList">
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>{{ "FIRST_NAME" | translate }}</th>
+      <td mat-cell *matCellDef="let crew">{{ crew.firstName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>{{ "LAST_NAME" | translate }}</th>
+      <td mat-cell *matCellDef="let crew">{{ crew.lastName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nationality">
+      <th mat-header-cell *matHeaderCellDef>{{ "NATIONALITY" | translate }}</th>
+      <td mat-cell *matCellDef="let crew">{{ crew.nationality }}</td>
+    </ng-container>
+
+    <!-- Diğer sütunlar -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
